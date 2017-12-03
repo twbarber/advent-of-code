@@ -1,9 +1,9 @@
-package me.twbarber.advent.one
+package me.twbarber.advent
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class PartOneTest {
+class DayOneTest {
 
     val input = """
         38934458354297226785584563175638938617524555425883695336365858871782324675888271931735959186485388524639743932
@@ -27,12 +27,22 @@ class PartOneTest {
         5253493869317616741963486473""".trimIndent().replace("\n","")
 
     @Test
-    fun run() {
-        assertEquals(3, PartOne.run("1221"))
-        assertEquals(4, PartOne.run("1111"))
-        assertEquals(0, PartOne.run("1234"))
-        assertEquals(9, PartOne.run("91212129"))
-        assertEquals(1177, PartOne.run(input))
+    fun partOne() {
+        assertEquals(3, DayOne.partOne("1221"))
+        assertEquals(4, DayOne.partOne("1111"))
+        assertEquals(0, DayOne.partOne("1234"))
+        assertEquals(9, DayOne.partOne("91212129"))
+        assertEquals(1177, DayOne.partOne(input))
+    }
+
+    @Test
+    fun partTwo() {
+        assertEquals(6, DayOne.partTwo("1212"))
+        assertEquals(0, DayOne.partTwo("1221"))
+        assertEquals(4, DayOne.partTwo("123425"))
+        assertEquals(12, DayOne.partTwo("123123"))
+        assertEquals(4, DayOne.partTwo("12131415"))
+        assertEquals(1060, DayOne.partTwo(input))
     }
 
 }
