@@ -1,22 +1,9 @@
 package me.twbarber.advent
 
-object DayOne {
+typealias Seq = List<Int>
 
-    fun partOne(input: String) : Int {
-        val list = input.split("").filter { n -> n != "" }
-        return list.indices
-                .filter { list[it] == list[(it + 1) % list.size] }
-                .map { it -> list[it].toInt() }
-                .sum()
-    }
+fun dayOnePartOne(input: Seq) = input.captcha { it + 1 }
 
-    fun partTwo(input: String) : Int {
-        val list = input.split("").filter { n -> n != "" }
-        return list.indices
-                .filter { list[it] == list[(it + list.size / 2) % list.size] }
-                .map { it -> list[it].toInt() }
-                .sum()
+fun dayOnePartTwo(input: Seq) = input.captcha { it + input.size / 2 }
 
-    }
-
-}
+fun Seq.captcha(func: (Int) -> Int) = indices.filter { x -> get(x) == get(func(x) % size) }.sum()

@@ -28,21 +28,23 @@ class DayOneTest {
 
     @Test
     fun partOne() {
-        assertEquals(3, DayOne.partOne("1221"))
-        assertEquals(4, DayOne.partOne("1111"))
-        assertEquals(0, DayOne.partOne("1234"))
-        assertEquals(9, DayOne.partOne("91212129"))
-        assertEquals(1177, DayOne.partOne(input))
+        assertEquals(3, dayOnePartOne("1221".parseRows()))
+        assertEquals(4, dayOnePartOne("1111".parseRows()))
+        assertEquals(0, dayOnePartOne("1234".parseRows()))
+        assertEquals(9, dayOnePartOne("91212129".parseRows()))
+        assertEquals(1177, dayOnePartOne(input.parseRows()))
     }
 
     @Test
     fun partTwo() {
-        assertEquals(6, DayOne.partTwo("1212"))
-        assertEquals(0, DayOne.partTwo("1221"))
-        assertEquals(4, DayOne.partTwo("123425"))
-        assertEquals(12, DayOne.partTwo("123123"))
-        assertEquals(4, DayOne.partTwo("12131415"))
-        assertEquals(1060, DayOne.partTwo(input))
+        assertEquals(6, dayOnePartTwo("1212".parseRows()))
+        assertEquals(0, dayOnePartTwo("1221".parseRows()))
+        assertEquals(4, dayOnePartTwo("123425".parseRows()))
+        assertEquals(12, dayOnePartTwo("123123".parseRows()))
+        assertEquals(4, dayOnePartTwo("12131415".parseRows()))
+        assertEquals(1060, dayOnePartTwo(input.parseRows()))
     }
+
+    private fun String.parseRows() = this.split("").filter { n -> n != "" }.map { it.toInt() }
 
 }
