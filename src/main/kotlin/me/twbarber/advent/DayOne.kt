@@ -6,4 +6,4 @@ fun dayOnePartOne(input: Seq) = input.captcha { it + 1 }
 
 fun dayOnePartTwo(input: Seq) = input.captcha { it + input.size / 2 }
 
-fun Seq.captcha(func: (Int) -> Int) = indices.filter { x -> get(x) == get(func(x) % size) }.sum()
+fun Seq.captcha(func: (Int) -> Int) = indices.filter { get(it) == get(func(it) % size) }.map { get(it) }.sum()

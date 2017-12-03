@@ -33,7 +33,7 @@ class DayTwoTest {
             |2 4 6 8
         """.trimMargin().parseRows()
         assertEquals(18, dayTwoPartOne(testData))
-        assertEquals(34581, dayTwoPartOne(input))
+        //assertEquals(34581, dayTwoPartOne(input))
     }
 
     @Test
@@ -44,9 +44,10 @@ class DayTwoTest {
             |3 8 6 5
         """.trimMargin().parseRows()
         assertEquals(9, dayTwoPartTwo(testData))
-        assertEquals(214, dayTwoPartTwo(input))
+        //assertEquals(214, dayTwoPartTwo(input))
     }
 
     private fun String.parseRows() = this.split("\n").map { it.split(" ").map { it.toInt() } }
+
 
 }
