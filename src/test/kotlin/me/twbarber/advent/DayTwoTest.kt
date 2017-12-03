@@ -23,7 +23,7 @@ class DayTwoTest {
         |543 462 111 459 107 353 2006 116 2528 56 2436 1539 1770 125 2697 2432
         |1356 208 5013 4231 193 169 3152 2543 4430 4070 4031 145 4433 4187 4394 1754
         |5278 113 4427 569 5167 175 192 3903 155 1051 4121 5140 2328 203 5653 3233
-    """.trimMargin()
+    """.trimMargin().parseRows()
 
     @Test
     fun partOne() {
@@ -31,7 +31,7 @@ class DayTwoTest {
             |5 1 9 5
             |7 5 3
             |2 4 6 8
-        """.trimMargin()
+        """.trimMargin().parseRows()
         assertEquals(18, dayTwoPartOne(testData))
         assertEquals(34581, dayTwoPartOne(input))
     }
@@ -42,10 +42,11 @@ class DayTwoTest {
             |5 9 2 8
             |9 4 7 3
             |3 8 6 5
-        """.trimMargin()
+        """.trimMargin().parseRows()
         assertEquals(9, dayTwoPartTwo(testData))
         assertEquals(214, dayTwoPartTwo(input))
-
     }
+
+    private fun String.parseRows() = this.split("\n").map { it.split(" ").map { it.toInt() } }
 
 }
