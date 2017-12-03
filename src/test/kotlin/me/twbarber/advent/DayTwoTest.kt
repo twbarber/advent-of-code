@@ -32,8 +32,8 @@ class DayTwoTest {
             |7 5 3
             |2 4 6 8
         """.trimMargin()
-        assertEquals(18, DayTwo.partOne(testData))
-        assertEquals(34581, DayTwo.partOne(input))
+        assertEquals(18, dayTwoPartOne(testData))
+        assertEquals(34581, dayTwoPartOne(input))
     }
 
     @Test
@@ -43,8 +43,8 @@ class DayTwoTest {
             |9 4 7 3
             |3 8 6 5
         """.trimMargin()
-        assertEquals(9, DayTwo.partTwo(testData))
-        assertEquals(214, DayTwo.partTwo(input))
+        assertEquals(9, dayTwoPartTwo(testData))
+        assertEquals(214, dayTwoPartTwo(input))
 
     }
 

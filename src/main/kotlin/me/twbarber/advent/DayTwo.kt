@@ -1,33 +1,14 @@
 package me.twbarber.advent
 
-object DayTwo {
+fun dayTwoPartOne(input: String) = input.parseRows().checksum({ it.minMaxDif() })
 
-    fun partOne(input: String) : Int = Spreadsheet(parseRows(input)).checksum({ it.minMaxDif() })
+fun dayTwoPartTwo(input: String) = input.parseRows().checksum({ it.evenQuotient() })
 
-    fun partTwo(input: String) : Int = Spreadsheet(parseRows(input)).checksum({ it.evenDivisorQuotient() })
+fun String.parseRows() = this.split("\n").map { it.split(" ").map { it.toInt() } }
 
-    private fun parseRows(input: String) : List<Row> {
-        return input.split("\n").map { Row(it.split(" ").map { it.toInt() }) }
-    }
+fun List<List<Int>>.checksum(func: (List<Int>) -> Int) = this.map(func).sum()
 
-    private data class Spreadsheet(private val rows: List<Row>) {
-        fun checksum(func: (Row) -> Int) = rows.map(func).sum()
-    }
+fun List<Int>.minMaxDif() = (this.max() ?: 0) - (this.min() ?: 0)
 
-    private data class Row(private val values: List<Int>) {
-        fun min() = values.min() ?: 0
-        fun max() = values.max() ?: 0
-
-        fun minMaxDif() : Int = max() - min()
-
-        fun evenDivisorQuotient() : Int {
-            return values.map { v ->
-                values.minus(v)
-                        .filter { m -> v % m == 0 }
-                        .map { d -> v / d }
-            }.flatMap { it }.sum()
-        }
-    }
-
-
-}
+fun List<Int>.evenQuotient() =
+        this.fold(0) { i, v -> i + this.minus(v).filter { m -> v % m == 0 }.map { d -> v / d }.sum() }
