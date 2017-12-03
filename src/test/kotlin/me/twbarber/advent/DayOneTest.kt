@@ -26,6 +26,6 @@ class DayOneTest {
         assertEquals(1060, dayOnePartTwo(input.format()))
     }
 
-    private fun String.format() = this.split("").filter { n -> n != "" }.map { it.toInt() }
+    private fun String.format() = this.split("").filter { it != "" }.map { it.toInt() }
 
 }
