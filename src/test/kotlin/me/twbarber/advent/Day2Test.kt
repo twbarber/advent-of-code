@@ -3,7 +3,7 @@ package me.twbarber.advent
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class DayTwoTest {
+class Day2Test {
 
     private val INPUT_FILE = "input/day_two.txt"
     private val input = ResourceLoader.loadAsText(INPUT_FILE).trimMargin()

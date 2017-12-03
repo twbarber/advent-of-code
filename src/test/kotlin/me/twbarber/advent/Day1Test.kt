@@ -3,7 +3,7 @@ package me.twbarber.advent
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class DayOneTest {
+class Day1Test {
 
     private val input = ResourceLoader.loadAsText("input/day_one.txt").replace("\n","")
 
