@@ -3,8 +3,8 @@ package me.twbarber.advent
 typealias Spreadsheet =  List<Row>
 typealias Row = List<Int>
 
-fun dayTwoPartOne(input: Spreadsheet) = input.checksum { it.minMaxDif() }
-fun dayTwoPartTwo(input: Spreadsheet) = input.checksum { it.pairEvenDiv() }
+fun dayTwoPartOne(input: Spreadsheet) = input.checksum(Row::minMaxDif)
+fun dayTwoPartTwo(input: Spreadsheet) = input.checksum(Row::pairEvenDiv)
 
 fun Spreadsheet.checksum(func: (Row) -> Int) = map(func).sum()
 
