@@ -6,43 +6,47 @@ import org.junit.Test
 class Day3Test {
 
     @Test
-    fun `findMax square 0`() {
-        assertEquals(1, findMax(0))
+    fun `pow for base exp`() {
+        assertEquals(4, pow(2, 2))
+        assertEquals(25, pow(5, 2))
+
     }
 
     @Test
-    fun `findMax square 1`() {
-        assertEquals(9, findMax(1))
+    fun `findSquare for target`() {
+        assertEquals(0, findSquare(target = 1))
+        assertEquals(1, findSquare(target = 9))
+        assertEquals(1, findSquare(target = 6))
+        assertEquals(3, findSquare(target = 26))
+        assertEquals(3, findSquare(target = 49))
+        assertEquals(4, findSquare(target = 81))
+        assertEquals(5, findSquare(target = 82))
     }
 
     @Test
-    fun `findMax square 2`() {
-        assertEquals(25, findMax(2))
+    fun `sideLength square`() {
+        assertEquals(1, sideLength(0))
+        assertEquals(3, sideLength(1))
+        assertEquals(5, sideLength(2))
     }
 
     @Test
-    fun `findSquare max 1`() {
-        assertEquals(0, findSquare(0, 1))
+    fun `side for square and target`() {
+        assertEquals(0, findSide(25))
+        assertEquals(0, findSide(24))
+        assertEquals(0, findSide(23))
+        assertEquals(0, findSide(22))
+        assertEquals(1, findSide(21))
+        assertEquals(1, findSide(20))
+        assertEquals(1, findSide(19))
+        assertEquals(1, findSide(18))
+        assertEquals(2, findSide(17))
+        assertEquals(2, findSide(16))
+        assertEquals(2, findSide(15))
+        assertEquals(2, findSide(14))
+        assertEquals(3, findSide(13))
     }
 
-    @Test
-    fun `findSquare max 9`() {
-        assertEquals(1, findSquare(0, 9))
-    }
 
-    @Test
-    fun `findSquare max 49`() {
-        assertEquals(3, findSquare(0, 49))
-    }
-
-    @Test
-    fun `findSquare max 72`() {
-        assertEquals(4, findSquare(0, 72))
-    }
-
-    @Test
-    fun `findSquare max 81`() {
-        assertEquals(4, findSquare(0, 81))
-    }
 
 }
