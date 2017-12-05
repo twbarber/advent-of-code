@@ -10,5 +10,5 @@ fun Spreadsheet.checksum(func: (Row) -> Int) = map(func).sum()
 
 fun Row.minMaxDif() = (max() ?: 0) - (min() ?: 0)
 fun Row.pairEvenDiv() = fold(0) {
-    i, v -> i + minus(v).filter { m -> v % m == 0 }.map { d -> v / d }.sum()
+    i, v -> i + filter { m -> v % m == 0 && m != v }.map { d -> v / d }.sum()
 }
