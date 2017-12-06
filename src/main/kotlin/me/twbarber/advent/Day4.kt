@@ -1,14 +1,15 @@
 package me.twbarber.advent
 
-typealias PassswordFile = List<String>
+typealias PasswordFile = List<String>
+typealias Password = List<String>
 
-fun PassswordFile.countValidPasswords(strategy: (List<String>) -> Boolean) =
+fun PasswordFile.countValidPasswords(strategy: (List<String>) -> Boolean) =
     filter { strategy(it.split(" ")) }.size
 
-fun noDupeWords(s: List<String>) = s.size == s.toSet().size
+fun noDupeWords(p: Password) = p.size == p.toSet().size
 
-fun noAnagrams(s: List<String>) = s.map(String::sortAlphabetical).toSet().size == s.size
+fun noAnagrams(p: Password) = p.map(String::sortAlphabetical).toSet().size == p.size
 
-private fun String.sortAlphabetical()  = toCharArray().sorted().joinToString()
+private fun String.sortAlphabetical() = toCharArray().sorted().joinToString()
 
 fun noAnagramsOrDupeWords(s: List<String>) = noAnagrams(s) && noDupeWords(s)

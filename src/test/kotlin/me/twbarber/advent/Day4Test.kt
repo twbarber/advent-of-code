@@ -7,8 +7,7 @@ const val INPUT_FILE = "input/day_four.txt"
 
 class Day4Test {
 
-    private val input = ResourceLoader.loadAsText(INPUT_FILE)
-        .trimMargin().split("\n")
+    private val input = ResourceLoader.loadAsText(INPUT_FILE).trimMargin().split("\n")
 
     @Test
     fun `String contains no duplicate words`() {
@@ -23,7 +22,7 @@ class Day4Test {
     }
 
     @Test
-    fun containsNoAnagrams() {
+    fun `Strng contains No Anagrams`() {
         assertEquals(true, noAnagramsOrDupeWords("abcde fghij".split(" ")))
         assertEquals(false, noAnagramsOrDupeWords("abcde xyz ecdab".split(" ")))
         assertEquals(true, noAnagramsOrDupeWords("a ab abc abd abf abj".split(" ")))
