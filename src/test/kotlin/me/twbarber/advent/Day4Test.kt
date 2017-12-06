@@ -2,11 +2,11 @@ package me.twbarber.advent
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
-import kotlin.math.exp
+
+const val INPUT_FILE = "input/day_four.txt"
 
 class Day4Test {
 
-    private val INPUT_FILE = "input/day_four.txt"
     private val input = ResourceLoader.loadAsText(INPUT_FILE)
         .trimMargin().split("\n")
 
@@ -23,16 +23,17 @@ class Day4Test {
     }
 
     @Test
-    fun isAnagram() {
-        assertEquals(false, isAnagram("abcde", "fghij"))
-        assertEquals(true, isAnagram("abcde", "ecdab"))
-        assertEquals(true, isAnagram("lol", "oll"))
-        assertEquals(false, isAnagram("lol", "ooll"))
+    fun containsNoAnagrams() {
+        assertEquals(true, noAnagramsOrDupeWords("abcde fghij".split(" ")))
+        assertEquals(false, noAnagramsOrDupeWords("abcde xyz ecdab".split(" ")))
+        assertEquals(true, noAnagramsOrDupeWords("a ab abc abd abf abj".split(" ")))
+        assertEquals(true, noAnagramsOrDupeWords("iiii oiii ooii oooi oooo".split(" ")))
+        assertEquals(false, noAnagramsOrDupeWords("oiii ioii iioi iiio".split(" ")))
     }
 
     @Test
-    fun `testBuildCharCountMap`() {
-        val expected = mapOf('l' to 2, 'o' to 1)
-        assertEquals(expected, "lol".buildCharCountMap())
+    fun partTwo() {
+        assertEquals(167, input.countValidPasswords(::noAnagramsOrDupeWords))
     }
+
 }

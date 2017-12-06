@@ -1,21 +1,14 @@
 package me.twbarber.advent
 
-import kotlin.math.absoluteValue
+typealias PassswordFile = List<String>
 
-
-fun List<String>.countValidPasswords(strategy: (List<String>) -> Boolean) =
-    filter { strategy(this) }.size
+fun PassswordFile.countValidPasswords(strategy: (List<String>) -> Boolean) =
+    filter { strategy(it.split(" ")) }.size
 
 fun noDupeWords(s: List<String>) = s.size == s.toSet().size
 
-fun noAnagrams(s: List<String>) : Boolean = false
+fun noAnagrams(s: List<String>) = s.map(String::sortAlphabetical).toSet().size == s.size
 
-fun isAnagram(l: String, r : String) = l.buildCharCountMap() == r.buildCharCountMap()
+private fun String.sortAlphabetical()  = toCharArray().sorted().joinToString()
 
 fun noAnagramsOrDupeWords(s: List<String>) = noAnagrams(s) && noDupeWords(s)
-
-fun String.buildCharCountMap() : Map<Char, Int> {
-    return toCharArray().fold(mutableMapOf()) {
-        i: MutableMap<Char, Int>, v -> i.put(v, (i[v]?.plus(1)) ?: 1); i
-    }
-}
