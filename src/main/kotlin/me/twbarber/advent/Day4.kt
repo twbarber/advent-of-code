@@ -3,7 +3,7 @@ package me.twbarber.advent
 typealias PasswordFile = List<String>
 typealias Password = List<String>
 
-fun PasswordFile.countValidPasswords(strategy: (List<String>) -> Boolean) =
+fun PasswordFile.countValidPasswords(strategy: (Password) -> Boolean) =
     filter { strategy(it.split(" ")) }.size
 
 fun noDupeWords(p: Password) = p.size == p.toSet().size
