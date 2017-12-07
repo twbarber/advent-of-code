@@ -10,10 +10,10 @@ class Day1Test {
     @Test
     fun partOne() {
         assertEquals(3, dayOnePartOne("1221".format()))
-        //assertEquals(4, dayOnePartOne("1111".format()))
-        //assertEquals(0, dayOnePartOne("1234".format()))
-        //assertEquals(9, dayOnePartOne("91212129".format()))
-        //assertEquals(1177, dayOnePartOne(input.format()))
+        assertEquals(4, dayOnePartOne("1111".format()))
+        assertEquals(0, dayOnePartOne("1234".format()))
+        assertEquals(9, dayOnePartOne("91212129".format()))
+        assertEquals(1177, dayOnePartOne(input.format()))
     }
 
     @Test
