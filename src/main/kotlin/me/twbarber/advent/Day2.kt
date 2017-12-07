@@ -9,4 +9,4 @@ fun dayTwoPartTwo(input: Spreadsheet) = input.checksum(Row::pairEvenDiv)
 fun Spreadsheet.checksum(func: (Row) -> Int) = map(func).sum()
 
 fun Row.minMaxDif() = (max() ?: 0) - (min() ?: 0)
-fun Row.pairEvenDiv() = fold(0) { i, v -> i + filter { v % it == 0 && it != v }.sumBy { v / it }}
+fun Row.pairEvenDiv() = fold(0) { i, v -> i + filter { v % it == 0 && it != v }.sumBy { v / it } }
