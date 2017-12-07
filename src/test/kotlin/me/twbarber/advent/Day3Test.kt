@@ -7,8 +7,8 @@ class Day3Test {
 
     @Test
     fun `pow for base exp`() {
-        assertEquals(4, pow(2, 2))
-        assertEquals(25, pow(5, 2))
+        assertEquals(4, 2 pow 2)
+        assertEquals(25, 5 pow 2)
 
     }
 
