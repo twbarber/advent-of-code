@@ -1,10 +1,10 @@
 package me.twbarber.advent
 
-fun partOne(seq: Seq, p: Int = 0, s: Int = 0) = countJumps(seq, p, s, Seq::incAt)
-fun partTwo(seq: Seq, p: Int = 0, s: Int = 0) = countJumps(seq, p, s, Seq::incOrDec)
+fun partOne(seq: Seq, pos: Int = 0, steps: Int = 0) = countJumps(seq, pos, steps, Seq::incAt)
+fun partTwo(seq: Seq, pos: Int = 0, steps: Int = 0) = countJumps(seq, pos, steps, Seq::incOrDec)
 
-tailrec fun countJumps(seq: Seq, p: Int, s: Int, js: Seq.(Int) -> Seq) : Int {
-    return if (p > seq.lastIndex) s else countJumps(seq.js(p), seq[p] + p, s + 1, js)
+tailrec fun countJumps(s: Seq, p: Int, st: Int, js: Seq.(Int) -> Seq) : Int {
+    return if (p > s.lastIndex) st else countJumps(s.js(p), s[p] + p, st + 1, js)
 }
 
 fun Seq.incAt(p: Int) = mapIndexed { i, v -> if(i == p) v + 1 else v }
