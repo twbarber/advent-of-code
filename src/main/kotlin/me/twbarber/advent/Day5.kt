@@ -1,7 +1,7 @@
 package me.twbarber.advent
 
-fun partOne(seq: Seq, pos: Int = 0, steps: Int = 0) = countJumps(seq, pos, steps, Seq::incAt)
-fun partTwo(seq: Seq, pos: Int = 0, steps: Int = 0) = countJumps(seq, pos, steps, Seq::incOrDec)
+fun partOne(seq: Seq) = countJumps(seq, 0, 0, Seq::incAt)
+fun partTwo(seq: Seq) = countJumps(seq, 0, 0,Seq::incOrDec)
 
 tailrec fun countJumps(s: Seq, p: Int, st: Int, js: Seq.(Int) -> Seq) : Int {
     return if (p > s.lastIndex) st else countJumps(s.js(p), s[p] + p, st + 1, js)
